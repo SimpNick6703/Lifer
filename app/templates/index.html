@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifer Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Lifer</h1>
+            <div class="theme-toggle">
+                <span class="toggle-label">Light</span>
+                <label class="switch">
+                    <input type="checkbox" id="theme-toggle-btn">
+                    <span class="slider round"></span>
+                </label>
+                <span class="toggle-label dark-label">Dark</span>
+            </div>
+        </div>
+        
+        <div class="game-controls">
+            <div class="opponent-select">
+                <label for="opponent-type">Play against:</label>
+                <select id="opponent-type">
+                    <option value="human">Human</option>
+                    <option value="ai">AI</option>
+                </select>
+            </div>
+            <button id="new-game-btn">New Game</button>
+        </div>
+
+        <div class="game-info">
+            <div id="current-player">Current Player: <span>Black</span></div>
+            <div id="message"></div>
+        </div>
+
+        <div class="scoreboard">
+            <div class="score">
+                <span class="player">Black:</span>
+                <span id="score-black">0</span>
+            </div>
+            <div class="score">
+                <span class="player">White:</span>
+                <span id="score-white">0</span>
+            </div>
+        </div>
+
+        <div class="game-container">
+            <div class="game-board">
+                <!-- The grid will be a 3x3 grid -->
+                <div class="row">
+                    <div class="cell" data-position="0"></div>
+                    <div class="cell" data-position="1"></div>
+                    <div class="cell" data-position="2"></div>
+                </div>
+                <div class="row">
+                    <div class="cell" data-position="3"></div>
+                    <div class="cell" data-position="4"></div>
+                    <div class="cell" data-position="5"></div>
+                </div>
+                <div class="row">
+                    <div class="cell" data-position="6"></div>
+                    <div class="cell" data-position="7"></div>
+                    <div class="cell" data-position="8"></div>
+                </div>
+            </div>
+
+            <div class="moves-history">
+                <h3>Moves History</h3>
+                <div class="moves-list" id="moves-list">
+                    <!-- Moves will be added here dynamically -->
+                </div>
+            </div>
+        </div>
+
+        <div class="game-rules">
+            <h3>Game Rules:</h3>
+            <p>Each player has 3 pieces. Take turns moving one piece at a time to an adjacent empty cell.</p>
+            <p>Some moves are invalid (diagonal corners). Win by getting all 3 of your pieces in a straight line through the center.</p>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+</body>
+</html>
