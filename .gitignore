@@ -1,6 +1,4 @@
 # Exclude specific files
-prompt.md
-image.png
 
 # Python files
 __pycache__/
