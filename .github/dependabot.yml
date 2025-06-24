@@ -5,7 +5,8 @@ version: 2
 updates:
   # Enable version updates for Python dependencies
   - package-ecosystem: "pip"
-    directory: "/"    schedule:
+    directory: "/"
+    schedule:
       interval: "weekly"
       day: "wednesday"
       time: "09:00"
